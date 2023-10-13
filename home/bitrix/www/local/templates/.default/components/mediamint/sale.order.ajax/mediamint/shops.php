@@ -13,7 +13,8 @@
 					<div class = "ajorder-pickup-pages">
 						<?$page = 0;?>
 						<?$pageNum = 1;?>
-						<?foreach ($arResult["STORE_LIST"] as $k => $v):?>
+						<?//foreach ($arResult["STORE_LIST"] as $k => $v):?>
+						<?foreach ($arResult["STORE_LIST_MDFD"] as $k => $v):?>
 							<?if(!$page):?>
 								<div data-page = "<?=$pageNum?>" class = "ajorder-pickup-page active">
 							<?endif;?>
@@ -69,7 +70,8 @@
 								</div>
 							</div>
 							<?$page++;?>
-							<?if(count($arResult["STORE_LIST"]) == $page):?>
+							<?//if(count($arResult["STORE_LIST"]) == $page):?>
+							<?if(count($arResult["STORE_LIST_MDFD"]) == $page):?>
 								</div>
 								<?break;?>
 							<?endif;?>
@@ -85,7 +87,8 @@
 					<div class = "ajorder-pickup-prev disabled"></div>
 					<div class = "ajorder-pickup-nav">
 						<?for (
-							$i = 0; $i < ceil(count($arResult["STORE_LIST"]) / 3); $i++
+							//$i = 0; $i < ceil(count($arResult["STORE_LIST"]) / 3); $i++
+							$i = 0; $i < ceil(count($arResult["STORE_LIST_MDFD"]) / 3); $i++
 						) {?>
 							<div 
 							data-page = "<?=($i + 1)?>"
