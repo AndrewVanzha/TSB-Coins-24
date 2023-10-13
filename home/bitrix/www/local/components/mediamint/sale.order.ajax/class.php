@@ -2525,7 +2525,7 @@ class SaleOrderAjax extends \CBitrixComponent
 
 		$arStore = array();
 		$dbList = CCatalogStore::GetList(
-			array("SORT" => "DESC", "ID" => "DESC"),
+            array("SORT" => "ASC", "ID" => "DESC"),
 			array("ACTIVE" => "Y", "ID" => $arStoreId, "ISSUING_CENTER" => "Y", "+SITE_ID" => SITE_ID),
 			false,
 			false,
