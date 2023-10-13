@@ -1,14 +1,44 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
+<?php
+$ar_cities = [];
+foreach ($arResult['CITY_ADDRESSES'] as $item) {
+    $ar_cities[] = $item['CITY'];
+}
+$ar_cities = array_unique($ar_cities);
+//debugg($ar_cities);
+if (!in_array($arResult["CITY_PLACE"]['VALUE'], $ar_cities)) {
+    $arResult["DELIVERY"][25]['CHECKED'] = 'Y';  // id=25
+    unset($arResult["DELIVERY"][3]);  // id=3 - самовывоз убираю
+}
 
+$arResult["STORE_LIST_MDFD"] = [];  // $arResult["CITY_PLACE"]["VALUE"] - выбранный город
+foreach ($arResult["STORE_LIST"] as $ix=>$store_list) {
+    $city_name = str_replace(' ', '', $arResult["CITY_PLACE"]["VALUE"]);
+    $store_list_address = str_replace(' ', '', $store_list['ADDRESS']);
+    if (mb_strripos($store_list_address, $city_name)) {
+        $arResult["STORE_LIST_MDFD"][$ix] = $store_list;
+    }
+}
+//debugg($arResult["STORE_LIST_MDFD"]);
+if (isset($_REQUEST['BUYER_STORE'])) {
+    $shop_num = $_REQUEST['BUYER_STORE'];
+    if (!array_key_exists($shop_num, $arResult["STORE_LIST_MDFD"])) {
+        $arResult["BUYER_STORE"] = array_key_first($arResult["STORE_LIST_MDFD"]); // номер магазина с меньшим sort в регионе
+        //debugg('arResult["BUYER_STORE"]');
+        //debugg($arResult["BUYER_STORE"]);
+    }
+}
+
+?>
 <script>
 	function fShowStore(id, showImages, formWidth, siteId)
 	{
-		// var strUrl = '<?=$templateFolder?>' + '/map.php';
+		// var strUrl = '<?//=$templateFolder?>' + '/map.php';
 		// var strUrlPost = 'delivery=' + id + '&showImages=' + showImages + '&siteId=' + siteId;
 
 		// var storeForm = new BX.CDialog({
-		// 			'title': '<?=GetMessage('SOA_ORDER_GIVE')?>',
+		// 			'title': '<?//=GetMessage('SOA_ORDER_GIVE')?>',
 		// 			head: '',
 		// 			'content_url': strUrl,
 		// 			'content_post': strUrlPost,
@@ -20,7 +50,7 @@
 
 		// var button = [
 		// 		{
-		// 			title: '<?=GetMessage('SOA_POPUP_SAVE')?>',
+		// 			title: '<?//=GetMessage('SOA_POPUP_SAVE')?>',
 		// 			id: 'crmOk',
 		// 			'action': function ()
 		// 			{
