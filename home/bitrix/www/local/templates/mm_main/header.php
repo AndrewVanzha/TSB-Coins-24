@@ -190,6 +190,7 @@ $topMargin = $curentPage === '/';
     <meta property="og:type" content="website" />
     <meta property="og:image" content="http://coins.tsbnk.ru/assets/images/logo-main.png" />
     <? // end sdt code?>
+	<meta name="robots" content="max-image-preview:large">
     <!-- api map -->
     <script src="https://api-maps.yandex.ru/2.1/?apikey=076946fa-82a2-4bfd-ae1f-6b3db63549be&lang=ru_RU" type="text/javascript">
     </script>
