@@ -64,6 +64,9 @@ body
 
     background-color: #F9FBFB;
 }
+not-scrollable {
+    overflow: hidden;
+}
 
 input
 {

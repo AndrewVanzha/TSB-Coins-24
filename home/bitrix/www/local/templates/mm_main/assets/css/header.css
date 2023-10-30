@@ -1249,6 +1249,21 @@
     pointer-events: none;
 
     transition: opacity .3s 0s;
+    max-height: calc(100vh - 61px);
+    overflow: auto;
+}
+.header-cart-items-wrapper::-webkit-scrollbar {
+    width: 5px; 
+    background-color: transparent;
+}
+
+.header-cart-items-wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--gold-color);
+    border-radius: 20px;    
+}
+
+.header-cart-items-wrapper::-webkit-scrollbar-button {
+    display: none;
 }
 .personal-navigation__item.cart-wrapper.opened .header-cart-items-wrapper
 {

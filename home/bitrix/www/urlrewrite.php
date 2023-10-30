@@ -80,12 +80,12 @@ $arUrlRewrite=array (
     'PATH' => '/coins/index.php',
     'SORT' => 100,
   ),
-  13 => 
-  array (
-    'CONDITION' => '#^\\??(.*)#',
-    'RULE' => '&$1',
-    'ID' => 'bitrix:catalog.section',
-    'PATH' => '/index.php',
-    'SORT' => 100,
-  ),
+  // 13 => 
+  // array (
+  //   'CONDITION' => '#^\\??(.*)#',
+  //   'RULE' => '&$1',
+  //   'ID' => 'bitrix:catalog.section',
+  //   'PATH' => '/index.php',
+  //   'SORT' => 100,
+  // ),
 );
