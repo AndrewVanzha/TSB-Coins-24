@@ -19,7 +19,7 @@ if ($info['name'] && $info['phone'] && $info['iblock']) {
     $arLoadProductArray = Array(
         "IBLOCK_ID"          => 25,
         "NAME"               => $title,
-        "CODE"               => $trans.'-'.mktime(),
+        "CODE"               => $trans.'-'.mktime(1),
         "ACTIVE"             => "N",
         "PREVIEW_TEXT"       => $info['question'],
         "DETAIL_TEXT"	     => "",

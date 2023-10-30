@@ -131,7 +131,7 @@ async function onChangeSearch(query) {
 }
 
 function onInputBlur(event) {
-    console.log("blur");
+    // console.log("blur");
 
     document.getElementById("open-sticky-search").classList.remove('hidden');
 
@@ -174,7 +174,7 @@ let prevY = window.scrollY;
 function onPageScroll(event) {
     const header = document.querySelector("header#page-header");
     const headerUp = header.querySelector(".header-up");
-    console.log(event.deltaY);
+    // console.log(event.deltaY);
     if (window.scrollY > headerUp.clientHeight) {
         header.classList.add('sticky');
         const deltaY = prevY - window.scrollY;

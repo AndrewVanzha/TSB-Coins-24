@@ -45,7 +45,7 @@ function AddReportMenus(&$adminMenu, &$moduleMenu){
 AddEventHandler("search", "BeforeIndex", array("SearchHandlers", "BeforeIndexHandler"));
 class SearchHandlers
 {
-    function BeforeIndexHandler($arFields)
+    static function BeforeIndexHandler($arFields)
     {
         if($arFields["MODULE_ID"] == "iblock")
         {

@@ -44,7 +44,7 @@ function closeAddedProductModal(event) {
 
 function closeKnowArrival(event) {
     if (arrivalModalTimeout !== null) clearTimeout(arrivalModalTimeout);
-
+    document.body.classList.remove("not-scrollable");
     document.querySelector(".know-about-arrival__inner-content").classList.remove("showed");
     // document.querySelector(".all-page-darkener").classList.remove("showed", "product-added-opened");
     document.querySelector(".know-arrival-bg").classList.remove("showed", "product-added-opened");
@@ -58,8 +58,13 @@ function closeKnowArrival(event) {
 }
 
 function openKnowArrivalModal(id) {
+    window.scrollTo({
+        "left": 0,
+        "top": 0,
+        behavior: "smooth",
+    });
+    document.body.classList.add("not-scrollable");
     document.querySelector(".know-arrival-bg").classList.add("showed", "product-added-opened");
-
     const innerContent = document.querySelector(".know-about-arrival__inner-content");
     innerContent.classList.add("showed");
 
@@ -77,6 +82,12 @@ function openKnowArrivalModal(id) {
 }
 
 function openSellModal(id) {
+    window.scrollTo({
+        "left": 0,
+        "top": 0,
+        behavior: "smooth",
+    });
+    document.body.classList.add("not-scrollable");
     document.querySelector(".know-arrival-bg").classList.add("showed", "product-added-opened");
 
     const innerContent = document.querySelector(".know-about-arrival__inner-content");

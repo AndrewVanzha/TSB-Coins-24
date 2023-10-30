@@ -77,4 +77,17 @@ if (!function_exists("debugg")) {
         }
     }
 }
+
+//  функция объявлена потому, что на 404 вылезала ошибка
+/*
+call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "ShowCanonical" not found or invalid function name (0)
+..../public_html/bitrix/modules/main/classes/general/main.php:3195
+*/
+if (!function_exists("ShowCanonical")) {
+  function ShowCanonical() {
+    return "";
+//    global $APPLICATION;
+//    $APPLICATION->AddBufferContent('GetCanonical');
+  }
+}
 ?>
