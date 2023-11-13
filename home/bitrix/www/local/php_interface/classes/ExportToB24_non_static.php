@@ -634,7 +634,7 @@ class ExportToB24
 
 	/*--------функция отправки сообщения----------*/
 
-	private static function sendMessage($message, $email) {
+	private function sendMessage($message, $email) {
 	  $url = self::url();
 	  $headers = "From: ".$url. "\r\n" .
 		"MIME-Version: 1.0" . "\r\n" .
@@ -647,7 +647,7 @@ class ExportToB24
 	/*----оперделение url сайта---------------*/
 
 
-	private static function url() {
+	private function url() {
 	  if ($_SERVER['HTTPS'] == "on")
 	  {
 		$protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
@@ -692,7 +692,7 @@ class ExportToB24
 
 
 	*/
-	private static function file_post_contents($url = 'https://10.222.222.92/app/importexport/getData.php', $data=array('key'=>"1q2w3e!QWE!",'art'=>'id'), $username = 'admin', $password = 'Kmr-bYp-CkW-sS2')
+	private function file_post_contents($url = 'https://10.222.222.92/app/importexport/getData.php', $data=array('key'=>"1q2w3e!QWE!",'art'=>'id'), $username = 'admin', $password = 'Kmr-bYp-CkW-sS2')
 	{
 		/*
 		$auth = base64_encode("username:password");
@@ -735,7 +735,7 @@ class ExportToB24
 		return preg_replace("~[^-a-z0-9_]+~u", "$s", strtolower(str_replace($rus, $lat, $str)));
 	}
 
-	static function changePropertyBeforeSaved(Main\Event $event)
+	function changePropertyBeforeSaved(Main\Event $event)
 	{
 		/** @var \Bitrix\Sale\Order $order */
 		$order = $event->getParameter("ENTITY");

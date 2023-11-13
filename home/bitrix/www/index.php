@@ -101,7 +101,7 @@ $APPLICATION->SetAdditionalCSS("/local/templates/mm_main/assets/css/mainpage.css
 		"DISPLAY_TOP_PAGER" => "N",
 		"ELEMENT_SORT_FIELD" => !empty($sort_masiv[0])?$sort_masiv[0]:"sort",
 		"ELEMENT_SORT_FIELD2" => "",
-		"ELEMENT_SORT_ORDER" => count($sort_masiv)>1?$sort_masiv[1]:"desc",
+		"ELEMENT_SORT_ORDER" => !empty($sort_masiv) && count($sort_masiv)>1?$sort_masiv[1]:"desc",
 		"ELEMENT_SORT_ORDER2" => "",
 		"ENLARGE_PRODUCT" => "STRICT",
 		"FILTER_NAME" => "arFilter",
