@@ -30,7 +30,7 @@ class UpdateStatusB24
 		
 	
 	//public function updateOrder( $orderId, $status )// для OnSaleStatusOrder
-	public function updateOrder( $event ) // для OnSaleStatusOrderChange
+	public static function updateOrder( $event ) // для OnSaleStatusOrderChange
 	{
 	self::log2file('start','start');
 	

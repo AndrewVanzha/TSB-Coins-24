@@ -1,5 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
-<?php// debugg($arResult["STORE_LIST"]); ?>
+<?php // debugg($arResult["STORE_LIST"]); ?>
 
 <?foreach ($arResult["DELIVERY"] as $key => $value):?>
 	<?if($value["CHECKED"] == "Y" && !empty($value["STORE"])):?>
