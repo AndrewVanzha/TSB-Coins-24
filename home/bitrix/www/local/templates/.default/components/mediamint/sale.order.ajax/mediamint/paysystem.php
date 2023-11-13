@@ -75,6 +75,18 @@
 			<?endif;?>
 
 			<?uasort($arResult["PAY_SYSTEM"], "cmpBySort");?>
+            <?
+            //debugg($arResult["PAY_SYSTEM"]);
+            if ($arResult["DELIVERY"][3]['CHECKED'] == 'Y') {  // Самовывоз
+                for ($ii=0; $ii<count($arResult["PAY_SYSTEM"]); $ii++) {
+                    //debugg($arResult["PAY_SYSTEM"][$ii]['ID']);
+                    //debugg($arResult["PAY_SYSTEM"][$ii]['NAME']);
+                    if ($arResult["PAY_SYSTEM"][$ii]['ID'] == 16) {  // Онлайн оплата на сайте - не нужна
+                        unset($arResult["PAY_SYSTEM"][$ii]);
+                    }
+                }
+            }
+            ?>
 
 			<div class = "ajorder-section-inner">
 				<div class = "ajorder-radios-wrapper">
