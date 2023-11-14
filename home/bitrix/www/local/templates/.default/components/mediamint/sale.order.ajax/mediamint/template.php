@@ -5,6 +5,7 @@
 <?$APPLICATION->SetAdditionalCSS($templateFolder."/style.css");?>
 <?$APPLICATION->SetAdditionalCSS($templateFolder."/custom.css");?>
 <?//END CSS?>
+<?php $arResult['OFFICE_CASH_CARD'] = 1; // выбранный офис для самовывоза (id склада) ?>
 
 <?if ($USER->IsAuthorized() || $arParams["ALLOW_AUTO_REGISTER"] == "Y"):?>
 	<?if ($arResult["USER_VALS"]["CONFIRM_ORDER"] == "Y" || $arResult["NEED_REDIRECT"] == "Y"):?>

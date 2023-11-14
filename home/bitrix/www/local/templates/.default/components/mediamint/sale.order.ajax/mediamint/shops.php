@@ -44,6 +44,7 @@
 												<span class ="ajorder-pickup-btn" data-id = "<?=$v['ID'];?>">
 													<?if($v['ID'] == $arResult["BUYER_STORE"]):?>
 														Выбрано
+                                                        <? $arResult['OFFICE_CASH_CARD'] = $v['ID']; ?>
 													<?else:?>
 														Выбрать
 													<?endif;?>
