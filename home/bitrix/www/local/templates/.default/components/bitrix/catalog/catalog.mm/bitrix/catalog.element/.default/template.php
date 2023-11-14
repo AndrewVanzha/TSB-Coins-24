@@ -409,7 +409,7 @@ foreach (
                             <span class="price-wrapper"><?=number_format($arResult["PROPERTIES"]["REDEMPTION_PRICE"]["VALUE"], 0, ".", " ")?> &#8381;</span>
                         </p>
 
-                        <button onclick="openSellModal('<?=$arResult['ID'];?>')" class="mint-btn blue sell-coin">Продать</a>
+                        <button onclick="openSellModal('<?=$arResult['ID'];?>')" class="mint-btn blue sell-coin">Продать</button>
                     </div>
                 <?}?>
             </div>
