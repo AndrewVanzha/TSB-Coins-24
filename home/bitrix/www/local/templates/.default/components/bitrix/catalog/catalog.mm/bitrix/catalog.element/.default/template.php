@@ -148,6 +148,10 @@ if ( $arResult["PROPERTIES"]["NEW_PRODUCT"]["VALUE"] == 1 ) $new = true;
 $small_count = false;
 if ( $arResult["PROPERTIES"]["ATT_SMALL_COUNT"]["VALUE"] == 'Y' ) $small_count = true;
 
+//последняя штука
+$last_item = false;
+if ( $arResult["PROPERTIES"]["ATT_LAST_ITEM"]["VALUE"] == 'Y' ) $last_item = true;
+
 $statuses = [];
 if ($sale) {
     $statuses[] = 'Распродажа'; 
@@ -158,6 +162,10 @@ if ($new) {
 $small_count_title = 'Меньше 10 шт';
 if ($small_count) {
     $statuses[] = $small_count_title;
+}
+$last_item_title = 'Последняя';
+if ($last_item) {
+    $statuses[] = $last_item_title;
 }
 
 $in_stock = $price > 0 && $arResult["PROPERTIES"]["AVAILABLE"]["VALUE"] == 1;
@@ -192,7 +200,7 @@ foreach (
             <?
                 foreach ($statuses as $key => $status) 
                 {?>
-                    <p class="catalog-detail__coin-status <?=($status==$small_count_title)? 'is-small':'' ?>"><?=$status?></p>
+                    <p class="catalog-detail__coin-status <?=($status==$small_count_title || $status==$last_item_title)? 'is-small':'' ?>"><?=$status?></p>
                 <?}
             ?>
         </div>
@@ -260,7 +268,7 @@ foreach (
 						<?
 						foreach ($statuses as $key => $status)
 						{?>
-                            <p class="catalog-detail__coin-status <?=($status==$small_count_title)? 'is-small':'' ?>"><?=$status?></p>
+                            <p class="catalog-detail__coin-status <?=($status==$small_count_title || $status==$last_item_title)? 'is-small':'' ?>"><?=$status?></p>
 						<?}
 						?>
 					</div>

@@ -118,6 +118,10 @@ if (!empty($arResult['ITEMS'])): ?>
             $small_count = false;
             if ( $arItem["PROPERTIES"]["ATT_SMALL_COUNT"]["VALUE"] == 'Y' ) $small_count = true;
 
+            //последняя штука
+            $last_item = false;
+            if ( $arItem["PROPERTIES"]["ATT_LAST_ITEM"]["VALUE"] == 'Y' ) $last_item = true;
+
             // есть в лайках
             $liked = in_array($arItem['ID'], $desiredArr);
 
@@ -165,13 +169,16 @@ if (!empty($arResult['ITEMS'])): ?>
                             $sale ? '<p class="coin-item__status sale">Распродажа</p>' : ''
                         )*/?>
                         <?=(
-                        $sale ? '<p class="coin-item__status sale">Акция</p>' : ''
+                             $sale ? '<p class="coin-item__status sale">Акция</p>' : ''
                         )?>
                         <?=(
                             $new ? '<p class="coin-item__status is-new">Новинка</p>' : ''
                         )?>
                         <?=(
                             $small_count ? '<p class="coin-item__status is-small">Меньше 10 шт</p>' : ''
+                        )?>
+                        <?=(
+                             $last_item ? '<p class="coin-item__status is-small">Последняя</p>' : ''
                         )?>
                     </div>
                     <button 
