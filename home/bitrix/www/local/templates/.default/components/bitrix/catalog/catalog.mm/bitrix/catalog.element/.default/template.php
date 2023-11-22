@@ -163,7 +163,7 @@ $small_count_title = 'Меньше 10 шт';
 if ($small_count) {
     $statuses[] = $small_count_title;
 }
-$last_item_title = 'Последняя';
+$last_item_title = 'Последние';
 if ($last_item) {
     $statuses[] = $last_item_title;
 }
