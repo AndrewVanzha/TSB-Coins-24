@@ -178,7 +178,7 @@ if (!empty($arResult['ITEMS'])): ?>
                             $small_count ? '<p class="coin-item__status is-small">Меньше 10 шт</p>' : ''
                         )?>
                         <?=(
-                             $last_item ? '<p class="coin-item__status is-small">Последняя</p>' : ''
+                             $last_item ? '<p class="coin-item__status is-small">Последние</p>' : ''
                         )?>
                     </div>
                     <button 
