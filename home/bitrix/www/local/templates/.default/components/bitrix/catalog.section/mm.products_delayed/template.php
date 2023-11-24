@@ -51,7 +51,15 @@ if ($arParams["DESIRED"]) {
 
 
 if (!empty($arResult['ITEMS'])): ?>
-<div 
+    <style>
+        .coin-item__status.is-small {
+            /*background-color: #A58A57;*/
+            background: linear-gradient(97.31deg, #E0C29B 0%, rgba(165, 138, 87, 0) 61.69%), linear-gradient(85.12deg, #A58A57 0%, #BEA272 97.71%);
+            color: #FFFFFF;
+            border-color: #A58A57;
+        }
+    </style>
+<div
 class="catalog-coins-items <?=$catalogCoinsClasses?>">
     <?
         foreach($arResult['ITEMS'] as $key => $arItem) {
@@ -86,7 +94,7 @@ class="catalog-coins-items <?=$catalogCoinsClasses?>">
 
             #Работа с ценой
 	        $pricesArray = $arItem["ITEM_PRICES"][0];
-	        
+
 	        // Лёня, PHP8
 	        $minPrice = null;
 	        if (isset($pricesArray["RATIO_PRICE"])) {
@@ -129,6 +137,14 @@ class="catalog-coins-items <?=$catalogCoinsClasses?>">
             // есть в лайках
             $liked = in_array($arItem['ID'], $desiredArr);
 
+            //меньше 10 штук
+            $small_count = false;
+            if ( $arItem['PROPERTIES']['ATT_SMALL_COUNT']["VALUE"] == 'Y' ) $small_count = true;
+
+            //последняя штука
+            $last_item = false;
+            if ( $arItem['PROPERTIES']['ATT_LAST_ITEM']["VALUE"] == 'Y' ) $last_item = true;
+
             //Название товара и описание
             $productTitle = (
             isset($arItem['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])&& $arItem['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'] != ''
@@ -169,6 +185,12 @@ class="catalog-coins-items <?=$catalogCoinsClasses?>">
                         )?>
                         <?=(
                             $new ? '<p class="coin-item__status is-new">Новинка</p>' : ''
+                        )?>
+                        <?=(
+                            $small_count ? '<p class="coin-item__status is-small">Меньше 10 шт</p>' : ''
+                        )?>
+                        <?=(
+                            $last_item ? '<p class="coin-item__status is-small">Последние</p>' : ''
                         )?>
                     </div>
                     <button 
