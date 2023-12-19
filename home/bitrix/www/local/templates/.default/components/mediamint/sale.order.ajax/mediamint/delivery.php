@@ -1,12 +1,14 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <?php
+use Debugg\Oop\Dvlp;
+
 $ar_cities = [];
 foreach ($arResult['CITY_ADDRESSES'] as $item) {
     $ar_cities[] = $item['CITY'];
 }
 $ar_cities = array_unique($ar_cities);
-//debugg($ar_cities);
+//Dvlp::debugg($ar_cities);
 if (!in_array($arResult["CITY_PLACE"]['VALUE'], $ar_cities)) {
     $arResult["DELIVERY"][25]['CHECKED'] = 'Y';  // id=25
     unset($arResult["DELIVERY"][3]);  // id=3 - самовывоз убираю

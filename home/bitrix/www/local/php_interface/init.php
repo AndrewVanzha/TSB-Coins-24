@@ -78,6 +78,14 @@ if (!function_exists("debugg")) {
     }
 }
 
+CModule::AddAutoloadClasses(
+    '', // не указываем имя модуля
+    array(
+        // ключ - имя класса, значение - путь относительно корня сайта к файлу с классом
+        '\debugg\oop\dvlp' => "/local/php_interface/debugg.oop/dvlp.php",
+    )
+);
+
 //  функция объявлена потому, что на 404 вылезала ошибка
 /*
 call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "ShowCanonical" not found or invalid function name (0)
